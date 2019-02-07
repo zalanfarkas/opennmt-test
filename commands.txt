@@ -1,0 +1,3 @@
+python preprocess.py -data_type img -src_dir data/coco/images/ -train_src data/coco/src-train.txt -train_tgt data/coco/tgt-train.txt -valid_src data/coco/src-val.txt -valid_tgt data/coco/tgt-val.txt -save_data data/coco/demo -tgt_seq_length 150 -tgt_words_min_frequency 2 -shard_size 500 -image_channel_size 1
+
+python train.py -model_type img -data data/coco/demo -save_model data/coco/model/demo-model -batch_size 20 -max_grad_norm 20 -learning_rate 0.1 -word_vec_size 80 -encoder_type brnn -image_channel_size 1 -train_steps 9 -save_checkpoint_steps 9
